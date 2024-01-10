@@ -1,6 +1,10 @@
-import knex from "../../services/knex";
+import knex from "../../services/knex.js";
 
 export const getAll = () => {
+  return knex("users");
+};
+
+export const get = (id) => {
   return knex("users");
 };
 
