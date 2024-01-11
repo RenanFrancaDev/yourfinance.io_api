@@ -1,6 +1,5 @@
 import { Router } from "express";
-import { getAll, get } from "./user";
-import { save, update } from "./user.model.js";
+import { getAll, get, save, update, remove } from './index.js';
 
 const router = Router();
 

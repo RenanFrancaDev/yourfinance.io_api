@@ -5,7 +5,7 @@ export const getAll = () => {
 };
 
 export const get = (id) => {
-  return knex("users");
+  return knex("users").where({ id }).first();
 };
 
 export const save = (params) => {
