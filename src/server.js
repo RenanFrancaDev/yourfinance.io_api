@@ -1,6 +1,5 @@
 import express from "express";
 import dotenv from "dotenv";
-import knex from "./config/database.js";
 dotenv.config();
 import userRoute from "./modules/user/user.route.js";
 const app = express();
@@ -13,7 +12,5 @@ app.get("/", (_, res) => {
 });
 
 app.listen(4000, async () => {
-  const result = await knex("users");
-  console.log("result", result);
   console.log("Server working in PORT 4000");
 });
