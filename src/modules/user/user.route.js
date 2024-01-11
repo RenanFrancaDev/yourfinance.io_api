@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getAll, get, save, update, remove } from './index.js';
+import { getAll, get, save, update, remove } from "./index.js";
 
 const router = Router();
 
