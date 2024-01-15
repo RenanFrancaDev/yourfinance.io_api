@@ -4,8 +4,10 @@ import { login, register } from "./index.js";
 const router = Router();
 
 router.post("/login", async (req, res) => {
+  console.log(req.body);
   const data = await login(req.body);
   res.status(200).json({ data });
+  console.log("data", data);
 });
 
 router.post("/register", async (req, res) => {
