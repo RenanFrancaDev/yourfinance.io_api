@@ -1,10 +1,19 @@
 import { Router } from "express";
-import { getAll, get, save, update, remove } from "./index.js";
+import { getAll, getMe, get, save, update, remove } from "./index.js";
 
 const router = Router();
 
 router.get("/", async (req, res) => {
   const data = await getAll();
+  res.status(200).json({ data });
+});
+
+//Package express bearer token to send req.token
+router.get("/me", async (req, res) => {
+  const data = await getMe(req.token);
+  if (data.error) {
+    res.status(403).json({ error: data.error });
+  }
   res.status(200).json({ data });
 });
 

@@ -6,12 +6,12 @@ export const login = async (params) => {
   const user = await getByEmail(params.email);
 
   if (!user) {
-    return { error: "E-mail ou senha inválidos" };
+    return { error: "Invalid e-mail or password" };
   }
 
   const passwordCorrect = bcrypt.compareSync(params.password, user.password);
   if (!passwordCorrect) {
-    return { error: "E-mail ou senha inválidos" };
+    return { error: "Invalid e-mail or password" };
   }
 
   const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET);
@@ -22,7 +22,7 @@ export const register = async (params) => {
   const user = await getByEmail(params.email);
 
   if (user) {
-    return { error: "Este e-mail já está cadastrado" };
+    return { error: "This e-mails already exist" };
   }
 
   const userCreated = await save(params);
