@@ -20,6 +20,7 @@ export const save = (params) => {
 };
 
 export const update = (id, params) => {
+  params.password = bcrypt.hashSync(params.password, 10);
   return knex(TABLE).where({ id }).update(params);
 };
 
